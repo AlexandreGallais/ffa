@@ -4,10 +4,9 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "tsc && vite build",
-        "build-storybook": "storybook build",
-        "vite:serve": "vite",
-        "storybook:serve": "storybook dev -p 6006"
+        "storybook:build": "storybook build",
+        "storybook:serve": "storybook dev -p 6006",
+        "vite:build": "tsc && vite build"
     },
     "dependencies": {
         "lit": "^3.2.0"
