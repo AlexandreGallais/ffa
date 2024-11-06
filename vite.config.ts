@@ -3,7 +3,7 @@ import { defineConfig } from 'vite';
 import path from 'path';
 
 export default defineConfig({
-    publicDir: '../../public/',
+    publicDir: '../../static/assets/',
     build: {
         manifest: true,
         minify: true,
