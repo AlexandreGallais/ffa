@@ -1,27 +1,12 @@
 {
-    "name": "ffa",
-    "version": "0.0.0",
-    "private": true,
-    "type": "module",
-    "scripts": {
-        "storybook:build": "storybook build",
-        "storybook:serve": "storybook dev -p 6006",
-        "vite:build": "tsc && vite build"
-    },
-    "dependencies": {
-        "lit": "^3.2.0"
-    },
-    "devDependencies": {
-        "@chromatic-com/storybook": "^1.9.0",
-        "@storybook/addon-essentials": "^8.3.5",
-        "@storybook/addon-links": "^8.3.5",
-        "@storybook/blocks": "^8.3.5",
-        "@storybook/test": "^8.3.5",
-        "@storybook/web-components": "^8.3.5",
-        "@storybook/web-components-vite": "^8.3.5",
-        "sass": "^1.80.6",
-        "storybook": "^8.3.5",
-        "typescript": "^5.5.3",
-        "vite": "^5.4.8"
-    }
+  "name": "ffa",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^18.2.0",
+    "@angular/core": "^18.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
 }
