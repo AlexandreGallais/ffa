@@ -1,10 +1,11 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
 // @ts-check
-const tseslint = require('typescript-eslint');
-const rootConfig = require('../../eslint.config.js');
+import tseslint from 'typescript-eslint';
+import rootConfig from '../../eslint.config.mjs';
+import angularConfig from '../../eslint-angular.config.mjs';
 
-module.exports = tseslint.config(
+export default tseslint.config(
   ...rootConfig,
+  ...angularConfig,
   {
     files: ['**/*.ts'],
     rules: {
@@ -22,6 +23,12 @@ module.exports = tseslint.config(
           type: 'element',
           prefix: 'ffa',
           style: 'kebab-case',
+        },
+      ],
+      '@angular-eslint/pipe-prefix': [
+        'error',
+        {
+          prefixes: ['ffa'],
         },
       ],
     },
