@@ -1,11 +1,11 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'ffa-input-text',
   standalone: true,
   imports: [],
   templateUrl: './input-text.component.html',
   styleUrl: './input-text.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class InputTextFfaComponent {}
+export class FfaInputTextComponent {}

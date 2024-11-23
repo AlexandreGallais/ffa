@@ -1,6 +1,6 @@
-import { type Preview, applicationConfig } from '@storybook/angular';
+import { applicationConfig, type Preview } from '@storybook/angular';
 
-import { iconsPathFfaToken, iconsSuffixFfaToken } from '../src/lib/tokens';
+import { ffaIconsToken, type FfaIconsToken } from '../src/lib/tokens';
 
 const preview: Preview = {
   parameters: {
@@ -14,8 +14,13 @@ const preview: Preview = {
   decorators: [
     applicationConfig({
       providers: [
-        { provide: iconsPathFfaToken, useValue: 'assets/icons/' },
-        { provide: iconsSuffixFfaToken, useValue: '.icon.svg' },
+        {
+          provide: ffaIconsToken,
+          useValue: {
+            path: 'assets/icons/',
+            suffix: '.icon.svg',
+          } as FfaIconsToken,
+        },
       ],
     }),
   ],

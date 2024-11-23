@@ -1,8 +1,11 @@
 :host {
   display: block;
-  width: 24px;
-  height: 24px;
-  background-color: var(--color);
-  mask-image: var(--path);
-  mask-size: 24px;
+  width: var(--ffa-icon-size);
+  min-width: var(--ffa-icon-size);
+  height: var(--ffa-icon-size);
+  min-height: var(--ffa-icon-size);
+  background-color: var(--ffa-icon-color);
+  mask-image: var(--ffa-icon-path);
+  mask-repeat: no-repeat;
+  mask-size: var(--ffa-icon-size);
 }

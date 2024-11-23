@@ -1,38 +1,45 @@
 import {
-  input,
-  inject,
-  effect,
-  Component,
-  HostBinding,
   ChangeDetectionStrategy,
+  Component,
+  effect,
+  HostBinding,
+  inject,
+  input,
 } from '@angular/core';
 
-import { iconsPathFfaToken, iconsSuffixFfaToken } from '../../tokens';
+import { ffaIconsToken } from '../../tokens';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'ffa-icon',
   standalone: true,
   imports: [],
   template: '',
   styleUrl: './icon.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class IconFfaComponent {
-  @HostBinding('style.--path') protected pathCssVar = '';
-  @HostBinding('style.--color') protected colorCssVar = '';
+export class FfaIconComponent {
+  @HostBinding('style.--ffa-icon-path') protected pathCssVar?: string;
+  @HostBinding('style.--ffa-icon-color') protected colorCssVar?: string;
+  @HostBinding('style.--ffa-icon-size.px') protected sizeCssVar?: number;
 
-  public name = input('');
-  public color = input('');
+  public name = input<string>();
+  public color = input<string>();
+  public size = input<number>();
 
-  private readonly iconsPathToken = inject(iconsPathFfaToken);
-  private readonly iconsSuffixToken = inject(iconsSuffixFfaToken);
+  private readonly iconsToken = inject(ffaIconsToken);
 
   public constructor() {
     effect(() => {
-      this.pathCssVar = `url(${this.iconsPathToken}${this.name()}${this.iconsSuffixToken})`;
+      this.pathCssVar =
+        this.name() === undefined
+          ? undefined
+          : `url(${this.iconsToken.path}${this.name()}${this.iconsToken.suffix})`;
     });
     effect(() => {
       this.colorCssVar = this.color();
+    });
+    effect(() => {
+      this.sizeCssVar = this.size();
     });
   }
 }
